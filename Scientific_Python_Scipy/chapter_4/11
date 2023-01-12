@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+import string, pylab
+s=string.whitespace
+
+
+class Experiment:
+	"""Interpreta dados de conc. e tempo de uma reação para obtenção da contante de arrehnius"""
+
+	def __init__(self, x,y):
+
+		self.x = x
+		self.y = y
+		self.t, self.c, self.x2, self.y2, sqrt, product =[], [], [], [], [], []
+		
+
+	def lista_dados(self,filename):
+#		global t, c
+		for line in open(filename, 'r'):
+			if not line.startswith('#'):
+				b=line.strip().split(s)
+				for item in b:
+					b=item.split()
+					self.t.append(float(b[0]))
+					self.c.append(float(b[1]))
+		
+	def transformation_data(self):#, x, y):
+#		global x2, y2
+		for i in range(len(self.x)):
+			self.x2.append(self.x[i])
+			self.y2.append(1/self.y[i])
+		
+	def linear_regression(self): #x, y):
+#		sqrt, product=[], []
+		for i in range(len(self.x)):
+			self.sqrt.append(self.x[i]**2)
+			self.product.append(self.x[i]*self.y[i])
+		m = (pylab.mean(self.product) - pylab.mean(self.x)*pylab.mean(self.y)) / (pylab.mean(self.sqrt) - (pylab.mean(self.x))**2)
+		c = pylab.mean(self.y) - m*pylab.mean(self.x)
+		return m,c	
+
+dados =Experiment( 
+
+
+#lista_dados('caa-50.txt')
+#transformation_data(t, c)
+#print(linear_regression(x2, y2))

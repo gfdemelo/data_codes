@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/gabriel/anaconda3/lib/python3.6/site-packages/spyder/app/mainwindow.py", line 3099, in main
+    mainwindow = run_spyder(app, options, args)
+  File "/home/gabriel/anaconda3/lib/python3.6/site-packages/spyder/app/mainwindow.py", line 2999, in run_spyder
+    main = MainWindow(options)
+  File "/home/gabriel/anaconda3/lib/python3.6/site-packages/spyder/app/mainwindow.py", line 307, in __init__
+    os.mkdir(programs.TEMPDIR)
+FileExistsError: [Errno 17] Arquivo existe: '/tmp/spyder-gabriel'

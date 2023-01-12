@@ -1,0 +1,25 @@
+set terminal postscript enhanced portrait color "NewCenturySchlbk-Roman" 8 size 5,6
+set encoding iso_8859_1
+set encoding utf8
+set decimalsign '.'
+
+set title "{/=14 Ex 13.9}" 
+set output "Zipf.eps"
+#set multiplot 
+#set encoding iso_8859_1
+set encoding utf8
+set xlabel "{/=11 log r }" 
+set ylabel "{/=11 log f}" offset 2
+#set grid
+set yrange [0:4]
+set xrange [0:3]
+#set xtics in mirror -2000,1000,2000                  #inicio,espacamento,final
+#set ytics in mirror 0,0.5,5
+set format x "%g"
+set format y "%5.1f"
+set grid lw 0.5 linecolor rgb "grey20"
+
+
+plot "dat_13.9" using ($2):($1) with lines linecolor rgb "black",\
+     "dat_13.9" using ($2):($1) with points ps 0.5 pt 7 linecolor rgb "black"
+
